@@ -53,14 +53,14 @@
                             <ul class="dropdown-menu animated fadeInRight m-t-xs">
                                 <li><a class="J_menuItem" href="form_avatar.html">修改头像</a>
                                 </li>
-                                <li><a class="J_menuItem" href="profile.html">个人资料</a>
+                                <li><a href="${tenantPrefix}/user/my/my-info-input.do"><i class="glyphicon glyphicon-list"></i>个人资料</a>
                                 </li>
                                 <li><a class="J_menuItem" href="contacts.html">联系我们</a>
                                 </li>
                                 <li><a class="J_menuItem" href="mailbox.html">信箱</a>
                                 </li>
                                 <li class="divider"></li>
-                                <li><a href="login.html">安全退出</a>
+                                <li><a href="${tenantPrefix}/j_spring_security_logout"><i class="glyphicon glyphicon-list"></i>安全退出</a>
                                 </li>
                             </ul>
                         </div>
@@ -399,7 +399,7 @@
                     </div>
                     <ul class="nav navbar-top-links navbar-right">
                         <li class="dropdown">
-                            <a class="dropdown-toggle count-info" data-toggle="dropdown" href="#">
+                            <a class="dropdown-toggle count-info"  data-toggle="dropdown" href="${tenantPrefix}/msg/msg-info-listReceived.do">
                                 <i class="fa fa-envelope"></i> <span class="label label-warning">16</span>
                             </a>
                             <ul class="dropdown-menu dropdown-messages">
@@ -441,8 +441,9 @@
                             </ul>
                         </li>
                         <li class="dropdown">
-                            <a class="dropdown-toggle count-info" data-toggle="dropdown" href="#">
-                                <i class="fa fa-bell"></i> <span class="label label-primary">8</span>
+                            <a class="dropdown-toggle count-info" data-toggle="dropdown" href="${tenantPrefix}/msg/msg-info-listReceived.do">
+                                <i class="glyphicon glyphicon-bell"></i>
+                                <i id="unreadMsg" class="badge"></i>
                             </a>
                             <ul class="dropdown-menu dropdown-alerts">
                                 <li>
