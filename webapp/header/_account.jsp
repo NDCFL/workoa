@@ -12,7 +12,7 @@
             <span class="icon-bar"></span>
           </a>
           <a href="${tenantPrefix}/" class="brand">
-			<img src="${cdnPrefix}/public/mossle/0.0.11/logo32.png" class="img-responsive pull-left" style="margin-top:-5px;margin-right:5px;">
+
 			OA <sub><small>1.0.0</small></sub>
 		  </a>
           <div class="nav-collapse collapse navbar-responsive-collapse">

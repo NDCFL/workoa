@@ -48,7 +48,7 @@
 
 		<footer id="m-footer" class="text-center">
 		  <hr>
-		  &copy;Mossle
+		  &copy;OA@2019
 		</footer>
 
 </div>

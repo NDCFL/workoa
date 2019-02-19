@@ -1,13 +1,11 @@
 <%@page contentType="text/html;charset=UTF-8" %>
 <%@include file="/common/taglibs.jsp" %>
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
-
 <head>
     <%@include file="/common/meta.jsp" %>
     <title><spring:message code="core.login.title" text="登录"/></title>
     <link href="/static/css/bootstrap.min.css" rel="stylesheet">
-    <link href="/static/css/font-awesome.min.css?v=4.4.0" rel="stylesheet">
     <link href="/static/css/animate.min.css" rel="stylesheet">
     <link href="/static/css/style.min.css" rel="stylesheet">
     <link href="/static/css/login.min.css" rel="stylesheet">
@@ -47,7 +45,7 @@
             <div class="col-sm-7">
                 <div class="signin-info">
                     <div class="logopanel m-b">
-                        <h1>OA</h1>
+                        <h4>OA</h4>
                     </div>
                     <div class="m-b"></div>
                     <h4>欢迎使用 <strong>OA后端管理框架</strong></h4>
@@ -63,6 +61,7 @@
             </div>
             <div class="col-sm-5">
                 <form id="userForm" name="f" method="post" action="${tenantPrefix}/j_spring_security_check">
+                    <h6><spring:message code="core.login.failure" text="登陆失败"/>${sessionScope['SPRING_SECURITY_LAST_EXCEPTION'].message}</h6>
                     <p class="m-t-md">OA后端管理系统登录</p>
                 <input type="hidden"  value="${tenantPrefix}">
                 <input type='hidden' id="tenant" name='tenant' class="form-control"

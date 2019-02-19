@@ -93,7 +93,52 @@ public class PortalController {
 
         return "portal/index";
     }
+    @RequestMapping("indexss")
+    public String indexss(Model model) {
+        String userId = currentUserHolder.getUserId();
+        PortalRef portalRef = this.createOrGetPortalRef(userId);
 
+        if (portalRef == null) {
+            return "portal/index";
+        }
+
+        PortalInfo portalInfo = portalRef.getPortalInfo();
+
+        List<Integer> columnIndexes = portalItemManager
+                .find("select distinct columnIndex from PortalItem where portalInfo=? order by columnIndex",
+                        portalInfo);
+        logger.debug("columnIndexes : {}", columnIndexes);
+
+        if (!columnIndexes.contains(Integer.valueOf(1))) {
+            columnIndexes.add(Integer.valueOf(1));
+        }
+
+        if (!columnIndexes.contains(Integer.valueOf(2))) {
+            columnIndexes.add(Integer.valueOf(2));
+        }
+
+        if (!columnIndexes.contains(Integer.valueOf(3))) {
+            columnIndexes.add(Integer.valueOf(3));
+        }
+
+        Collections.sort(columnIndexes);
+
+        Map<Integer, List<PortalItem>> map = new LinkedHashMap<Integer, List<PortalItem>>();
+
+        for (Integer columnIndex : columnIndexes) {
+            List<PortalItem> portalItems = portalItemManager
+                    .find("from PortalItem where portalInfo=? and columnIndex=? order by rowIndex",
+                            portalInfo, columnIndex);
+            map.put(columnIndex, portalItems);
+        }
+
+        model.addAttribute("map", map);
+
+        List<PortalWidget> portalWidgets = portalWidgetManager.getAll();
+        model.addAttribute("portalWidgets", portalWidgets);
+
+        return "portal/indexss";
+    }
     @RequestMapping("save")
     public String save(@RequestParam(value = "id", required = false) Long id,
             @RequestParam("portalWidgetId") Long portalWidgetId,

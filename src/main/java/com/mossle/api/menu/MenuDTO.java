@@ -9,6 +9,7 @@ public class MenuDTO {
     private String url;
     private String permission;
     private String type;
+    private String icon;
     private List<MenuDTO> children = new ArrayList<MenuDTO>();
 
     public String getCode() {
@@ -57,5 +58,13 @@ public class MenuDTO {
 
     public void setChildren(List<MenuDTO> children) {
         this.children = children;
+    }
+
+    public String getIcon() {
+        return icon;
+    }
+
+    public void setIcon(String icon) {
+        this.icon = icon;
     }
 }
